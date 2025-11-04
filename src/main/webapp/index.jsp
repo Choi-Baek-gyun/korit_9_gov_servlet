@@ -9,5 +9,10 @@
 </h1>
 <br/>
 <a href="hello-servlet">Hello Servlet</a>
+<%
+    String name = "최백균";
+%>
+<h1><%= name%></h1>
+
 </body>
 </html>

@@ -13,13 +13,21 @@ public class HelloServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
+
+        // content type -> 서버의 요청 또는 응답 데이터 형식을 선택
+        response.setContentType("application/json");
+        // 문자열 인코딩
+        response.setCharacterEncoding("utf-8");
 
         // Hello
+       // PrintWriter out2 = new PrintWriter(response.getOutputStream());
         PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
-        out.println("</body></html>");
+        out.println("""
+                {
+                    "name": "최백균",
+                    "age": 26
+                }
+                """);
     }
 
     public void destroy() {
