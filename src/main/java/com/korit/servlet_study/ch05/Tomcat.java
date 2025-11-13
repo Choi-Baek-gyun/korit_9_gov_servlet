@@ -19,9 +19,6 @@ public class Tomcat {
         );
 
         List<Filter> filters = List.of(
-                new Filter1(),
-                new Filter2(),
-                new Filter3()
         );
 
         FilterChain filterChain = new FilterChain(filters, servletMap.get(request.getUrl()), 0);
