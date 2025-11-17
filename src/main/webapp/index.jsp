@@ -1,18 +1,31 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>JSP - Hello World</title>
-</head>
-<body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
-<%
-    String name = "최백균";
+<%  // 스크립틀릿
+    String n = request.getParameter("num");
+    int num = 0;
+    if (n != null) {
+        if (!n.isBlank()) {
+            num = Integer.parseInt(n);
+        }
+    }
 %>
-<h1><%= name%></h1>
+<html>
+    <head>
+        <title>Title</title>
+    </head>
+    <body>
+        <form action="/servlet_study_war_exploded/number">
+            <input type="text" name="num">
+            <button>추가</button>
+            <ul>
+                <%
+                    for (int i = 0; i < num; i++) {
 
-</body>
+                %>
+                        <li><%=i + 1%></li>
+                <%
+                    }
+                %>
+            </ul>
+        </form>
+    </body>
 </html>
